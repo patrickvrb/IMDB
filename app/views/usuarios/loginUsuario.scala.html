@@ -1,0 +1,21 @@
+@* novoUsuario Template File *@
+@(usuarioForm: Form[UsuarioVO], error : String)(implicit messages: Messages)
+
+@main("Logar usuario") {
+
+@if(error!= null) {<p>@error</p>}
+
+@helper.form(action = routes.UsuarioController.loginUsuarioSubmissao()) {
+@helper.inputText(usuarioForm("Email"))
+@helper.inputText(usuarioForm("Senha"), 'type -> "password")
+
+
+<p>  <div class="form-actions">
+    <button type="submit">LOGIN</button>
+</div>
+
+<button><a href = "/">RETORNAR</a></button>
+
+}
+
+}

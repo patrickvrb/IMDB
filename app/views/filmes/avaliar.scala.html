@@ -1,0 +1,35 @@
+@* listagem Template File *@
+@(filmes: List[FilmeMedia], notaForm: Form[NotaVO], error : String)(implicit messages: Messages)
+
+@main("IMDB") {
+
+<link rel="stylesheet" type="text/css" href='@routes.Assets.versioned("/bootstrap-3.3.7-dist/css/bootstrap.css")'/>
+
+@helper.form(action = routes.FilmeController.avaliarSubmissao()) {
+<html>
+<body>
+<table class="table table-striped">
+    <tr>
+        <th>TITULO</th>
+        <th>DIRETOR</th>
+        <th>ANO DE PRODUCAO</th>
+        <th>NOTA MEDIA</th>
+    </tr>
+    @for(filme <- filmes) {
+    <tr><td>@filme.titulo</td> - <td>@filme.diretor</td> - <td>@filme.anoProducao</td> - <td>@filme.media </td></tr>
+    }
+
+</table>
+
+@helper.inputText(notaForm("Filme"))
+@helper.inputText(notaForm("Nota"))
+
+<div class="form-actions">
+    <button type="submit">SUBMETER AVALIACAO</button>
+</div>
+<button><a href = "/redirect"> RETORNAR </a></button>
+</body>
+</html>
+
+}
+}

@@ -1,0 +1,16 @@
+@* novoFilme Template File *@
+@(filmeForm: Form[FilmeVO])(implicit messages: Messages)
+
+@main("Novo filme") {
+  @helper.form(action = routes.FilmeController.novoFilmeSubmissao()) {
+  @helper.inputText(filmeForm("Titulo"))
+  @helper.inputText(filmeForm("Diretor"))
+  @helper.inputText(filmeForm("Ano"))
+
+  <div class="form-actions">
+    <button type="submit">CADASTRAR FILME</button>
+  </div>
+
+<button><a href = "/redirect"> RETORNAR </a></button>
+ }
+}

@@ -1,0 +1,28 @@
+@* listagem Template File *@
+@(filmes: List[FilmeMedia])
+
+@main("IMDB") {
+<html lang="en">
+<link rel="stylesheet" type="text/css" href='@routes.Assets.versioned("/bootstrap-3.3.7-dist/css/bootstrap.css")'/>
+
+<tbody>
+<table class="table table-striped">
+    <tr>
+        <th>TITULO</th>
+        <th>DIRETOR</th>
+        <th>ANO DE PRODUCAO</th>
+        <th>NOTA MEDIA</th>
+    </tr>
+     @for(filme <- filmes) {
+    <tr><td>@filme.titulo</td> - <td>@filme.diretor</td> - <td>@filme.anoProducao</td> - <td>@filme.media </td></tr>
+     }
+
+</table>
+
+    <button>
+        <a href = "/"> RETORNAR</a>
+    </button>
+
+</tbody>
+</html>
+}
